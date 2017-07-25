@@ -1,3 +1,6 @@
+Installation Guide of Rasberry Pi 3 Applications
+----
+
 # Installation of Nodejs and Node-red
 
 Remove all existing packages
@@ -130,6 +133,75 @@ $ cd ~/.node-red
 $ npm install node-red-contrib-apdu2pcsc
 ```
 
+#Reading NFC (Near Field Communication)
+Details of ATR String
+
+```sh
+ATR = 3B 8F 80 01 80 4F 0C A0 00 00 03 06 03 00 03 00 00 00 00 68
+```
+
+What does this hexidecimal string of number means?
+
+`0x3B`, TS, Direction convention
+
+`0x8F`, T0
+
+`0x80`, TD1, Higher nibble 8 means: no TA2, TB2, TC2, only TD2 is following. Lower nibble 0 means T=0
+
+`0x01`, TD2, Higher nibble 8 means: no TA3, TB3, TC3, only TD3 is following. Lower nibble 1 means T=1
+
+`0x80`, T1, Category indicator byte, 80 means A status indicator may be present in an optional COMPACT-TLV data object.
+
+`0x4F`, Tk, Application identifier Presence Indicator
+
+`0x0C`, Length, Length = 12 data byte (from next byte to check sum byte)
+
+`0xA0 0x00 0x00 0x03 0x06`, RID, PC/SC Workgroup
+
+`0x03`, Standard	ISO14443A, part 3
+
+`0x00 0x03`, Card Name, Mifare Ultralight
+
+`00 01` Mifare 1K
+
+`00 02` Mifare 4K
+
+`00 03` Mifare Ultralight
+
+`00 26` Mifare Mini
+
+`F0 04` Topaz and Jewel
+
+`F0 11` Felica 212K
+
+`F0 12` Felica 424K
+
+`FF` [SAK] undefined
+
+`0x00 0x00 0x00 0x00`, RFU, RFU # 00 00 00 00
+
+`0x68`, TCK, Check Sum. Ex-OR of all the bytes T0 to Tk
+
+
+#APDU Commands
+Read tag ID
+
+```sh
+FF CA 00 00 04
+```
+
+Read binary Page 0x04, 4 bytes
+
+```sh
+FF B0 00 04 04
+```
+
+Read binary Page 0x04, 16 bytes
+
+```sh
+FF B0 00 04 10
+```
+
 # Installation of Mqtt Broker
 Check https://github.com/mcollina/mosca and install the following lib if using embedded mode:
 ```sh
@@ -161,7 +233,7 @@ $ npm install node-red-contrib-influxdb
 ```
 
 # Configuration of Nginx proxy
-```
+```sh
 upstream nodejs_upstream {
     server 127.0.0.1:1880;
     keepalive 64;
