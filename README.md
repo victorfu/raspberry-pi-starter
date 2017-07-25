@@ -1,7 +1,8 @@
 Installation Guide of Rasberry Pi 3 Applications
-----
+===
 
-# Installation of Nodejs and Node-red
+
+## Installation of Nodejs and Node-red
 
 Remove all existing packages
 ```sh
@@ -50,7 +51,7 @@ $ pm2 save
 $ pm2 startup
 ```
 
-# Installation of Node-red security
+## Installation of Node-red security
 ```sh
 $ npm install -g node-red-admin
 $ node-red-admin hash-pw
@@ -74,7 +75,7 @@ adminAuth: {
 ```
 Uncomment this, paste your bcrypt string in the password field
 
-# Installation of PCSC
+## Installation of PCSC
 
 Instal the PCSC C-libraries
 ```sh
@@ -133,7 +134,7 @@ $ cd ~/.node-red
 $ npm install node-red-contrib-apdu2pcsc
 ```
 
-#Reading NFC (Near Field Communication)
+##Reading NFC (Near Field Communication)
 Details of ATR String
 
 ```sh
@@ -183,7 +184,7 @@ What does this hexidecimal string of number means?
 `0x68`, TCK, Check Sum. Ex-OR of all the bytes T0 to Tk
 
 
-#APDU Commands
+##APDU Commands
 Read tag ID
 
 ```sh
@@ -202,21 +203,21 @@ Read binary Page 0x04, 16 bytes
 FF B0 00 04 10
 ```
 
-# Installation of Mqtt Broker
+## Installation of Mqtt Broker
 Check https://github.com/mcollina/mosca and install the following lib if using embedded mode:
 ```sh
 $ sudo apt-get install make gcc g++
 $ sudo apt-get install libzmq3 libzmq3-dev
 ```
 
-# Installation of SQLite
+## Installation of SQLite
 ```sh
 $ sudo apt-get install sqlite3
 $ cd ~/.node-red
 $ npm install node-red-node-sqlite
 ```
 
-# Installation of MySQL
+## Installation of MySQL
 ```sh
 $ sudo apt-get install mysql-server --fix-missing
 $ sudo apt-get install mysql-client
@@ -224,7 +225,7 @@ $ cd ~/.node-red
 $ npm install node-red-node-sqlite
 ```
 
-# Installation of InfluxDB
+## Installation of InfluxDB
 ```sh
 $ wget https://dl.influxdata.com/influxdb/releases/influxdb_1.2.4_armhf.deb
 $ sudo dpkg -i influxdb_1.2.4_armhf.deb
@@ -232,7 +233,7 @@ $ cd ~/.node-red
 $ npm install node-red-contrib-influxdb
 ```
 
-# Configuration of Nginx proxy
+## Configuration of Nginx proxy
 ```sh
 upstream nodejs_upstream {
     server 127.0.0.1:1880;
