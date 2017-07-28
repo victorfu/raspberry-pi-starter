@@ -115,7 +115,6 @@ $ sudo LIBCCID_ifdLogLevel=0x000F pcscd --foreground --debug --apdu --color
 ```
 
 Start pcscd at boot
-
 ```sh
 $ sudo systemctl enable pcscd.service
 ```
@@ -186,19 +185,16 @@ What does this hexidecimal string of number means?
 
 ##APDU Commands
 Read tag ID
-
 ```sh
 FF CA 00 00 04
 ```
 
 Read binary Page 0x04, 4 bytes
-
 ```sh
 FF B0 00 04 04
 ```
 
 Read binary Page 0x04, 16 bytes
-
 ```sh
 FF B0 00 04 10
 ```
@@ -259,3 +255,6 @@ server {
 }
 
 ```
+
+## Change Splash Screen
+The splash screen is a PNG file at `/usr/share/plymouth/themes/pix/splash.png`. Replace the PNG to change the splash screen.
