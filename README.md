@@ -258,3 +258,62 @@ server {
 
 ## Change Splash Screen
 The splash screen is a PNG file at `/usr/share/plymouth/themes/pix/splash.png`. Replace the PNG to change the splash screen.
+
+## Configure DS3231 RTC
+Enable I2C pins.
+```sh
+sudo raspi-config
+```
+
+Detect I2C address
+```sh
+sudo i2cdetect -y 1
+```
+
+Found there is an I2C device at 0x68. Write its address into i2c-adapter to let system know a new device detected.
+```sh
+sudo echo ds3231 0x68 > /sys/class/i2c-adapter/i2c-1/new_device
+```
+
+Execute i2cdetect again and make sure the address is changed to UU.
+```sh
+sudo i2cdetect -y 1
+```
+
+Adjust clock from Internet or manual input
+```sh
+sudo service ntp start
+```
+```sh
+sudo ntpdate 0.tw.pool.ntp.org
+
+```
+```sh
+date -s "2016-11-23 08:30:25"
+```
+
+Read clock from hwclock
+```sh
+sudo hwclock -r
+```
+
+Write clock to hwclock
+```sh
+sudo hwclock -w
+```
+
+Configure hwclock as Linux system time
+```sh
+sudo hwclock -s
+```
+
+Check all time information
+```sh
+timedatectl
+```
+
+Execute RTC hardware clock on boot. Put the following commands in `/etc/rc.local`.
+```sh
+echo ds3231 0x68 > /sys/class/i2c-adapter/i2c-1/new_device
+sudo hwclock -s
+```
