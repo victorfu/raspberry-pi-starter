@@ -18,7 +18,7 @@ $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh |
 
 Install nodejs
 ```sh
-$ nvm install 6.10.1
+$ nvm install 6.11.1
 ```
 
 Install pm2
@@ -34,12 +34,12 @@ $ npm install -g --unsafe-perm node-red
 Check the location of node-red binary
 ```sh
 $ whereis node-red
-node-red: /home/pi/.nvm/versions/node/v6.10.1/bin/node-red
+node-red: /home/pi/.nvm/versions/node/v6.11.1/bin/node-red
 ```
 
 Start node-red by pm2
 ```sh
-$ pm2 start /home/pi/.nvm/versions/node/v6.10.1/bin/node-red -- -v
+$ pm2 start /home/pi/.nvm/versions/node/v6.11.1/bin/node-red -- -v
 ```
 
 Tell PM2 to run on boot
