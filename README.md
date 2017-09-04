@@ -259,6 +259,17 @@ server {
 ## Change Splash Screen
 The splash screen is a PNG file at `/usr/share/plymouth/themes/pix/splash.png`. Replace the PNG to change the splash screen.
 
+## Configure Kiosk Mode
+```sh
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+@xset s off
+@xset -dpms
+@xset s noblank
+@sed -i 's/"exited_cleanly": false/"exited_cleanly": true/' ~/.config/chromium-browser Default/Preferences
+@chromium-browser --noerrdialogs --kiosk http://localhost --incognito --disable-translate
+```
+
 ## Configure DS3231 RTC
 Enable I2C pins.
 ```sh
