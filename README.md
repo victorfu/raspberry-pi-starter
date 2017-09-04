@@ -218,7 +218,7 @@ $ npm install node-red-node-sqlite
 $ sudo apt-get install mysql-server --fix-missing
 $ sudo apt-get install mysql-client
 $ cd ~/.node-red
-$ npm install node-red-node-sqlite
+$ npm install node-red-node-mysql
 ```
 
 ## Installation of InfluxDB
