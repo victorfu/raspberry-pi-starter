@@ -221,6 +221,20 @@ $ cd ~/.node-red
 $ npm install node-red-node-mysql
 ```
 
+```sh
+ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;
+ FLUSH PRIVILEGES;
+```
+
+In `/etc/mysql/my.cnf`, change the following line
+```sh
+bind-address = 127.0.0.1
+```
+to
+```sh
+bind-address = *
+```
+
 ## Installation of InfluxDB
 ```sh
 $ wget https://dl.influxdata.com/influxdb/releases/influxdb_1.2.4_armhf.deb
