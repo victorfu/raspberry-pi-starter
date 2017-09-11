@@ -284,6 +284,12 @@ The splash screen is a PNG file at `/usr/share/plymouth/themes/pix/splash.png`. 
 @chromium-browser --noerrdialogs --kiosk http://localhost --incognito --disable-translate
 ```
 
+## Rotate the Pi screen
+Edit `/boot/config.txt` and add the following line:
+```sh
+lcd_rotate=2
+```
+
 ## Configure DS3231 RTC
 Enable I2C pins.
 ```sh
