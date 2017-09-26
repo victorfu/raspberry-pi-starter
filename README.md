@@ -295,6 +295,11 @@ Edit `/boot/config.txt` and add the following line:
 ```sh
 lcd_rotate=2
 ```
+## Disable touch screen
+Edit `/boot/config.txt` and add the following line:
+```sh
+disable_touchscreen=1
+```
 
 ## Configure DS3231 RTC
 Enable I2C pins.
