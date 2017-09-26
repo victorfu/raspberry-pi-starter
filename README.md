@@ -274,6 +274,12 @@ server {
 The splash screen is a PNG file at `/usr/share/plymouth/themes/pix/splash.png`. Replace the PNG to change the splash screen.
 
 ## Configure Kiosk Mode
+Edit the autostart file:
+```sh
+vim ~/.config/lxsession/LXDE-pi/autostart
+```
+
+Add the following commands:
 ```sh
 @lxpanel --profile LXDE-pi
 @pcmanfm --desktop --profile LXDE-pi
