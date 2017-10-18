@@ -221,6 +221,20 @@ $ cd ~/.node-red
 $ npm install node-red-node-mysql
 ```
 
+First time to configure the password for database
+```sh
+mysql_secure_installation
+```
+
+If you have this problem: `Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MariaDB client`, just use the following instructions to fix the problem.
+```sh
+use mysql;
+update user set authentication_string=password(''), plugin='mysql_native_password' where user='root';
+```
+https://stackoverflow.com/questions/2101694/how-to-set-root-password-to-null/36234358#36234358
+
+
+If you need to connect to the remote database via root account, check the following.
 ```sh
  GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;
  FLUSH PRIVILEGES;
