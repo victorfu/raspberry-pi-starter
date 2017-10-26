@@ -223,7 +223,11 @@ $ npm install node-red-node-mysql
 
 First time to configure the password for database
 ```sh
-mysql_secure_installation
+sudo mysql_secure_installation
+```
+
+```sh
+sudo mysql -u root -p
 ```
 
 If you have this problem: `Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MariaDB client`, just use the following instructions to fix the problem.
