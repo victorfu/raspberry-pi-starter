@@ -377,3 +377,29 @@ Execute RTC hardware clock on boot. Put the following commands in `/etc/rc.local
 echo ds3231 0x68 > /sys/class/i2c-adapter/i2c-1/new_device
 sudo hwclock -s
 ```
+
+## Set up WiFi on your Raspberry Pi from SD card
+You'll have to locate the boot directory, on my Mac it's in /Volumes/boot.
+```sh
+cd /Volumes/boot
+```
+
+Add wpa_supplicant.conf file
+For Raspbian Jessie:
+```sh
+network={
+    ssid="NETWORK_NAME"
+    psk="PASSWORD"
+    key_mgmt=WPA-PSK
+}
+```
+
+For Raspbian Stretch (and newer versions of RetroPie):
+```sh
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+network={
+    ssid="NETWORK_NAME"
+    psk="PASSWORD"
+    key_mgmt=WPA-PSK
+}
+```
