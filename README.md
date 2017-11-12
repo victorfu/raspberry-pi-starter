@@ -261,6 +261,13 @@ $ cd ~/.node-red
 $ npm install node-red-contrib-influxdb
 ```
 
+## Installation of Mongodb
+```sh
+$ sudo apt-get install mongodb
+$ cd ~/.node-red
+$ npm i node-red-node-mongodb
+```
+
 ## Configuration of Nginx proxy
 ```sh
 upstream nodejs_upstream {
