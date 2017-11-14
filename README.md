@@ -291,8 +291,164 @@ server {
             proxy_max_temp_file_size 0;
             proxy_read_timeout 240s;
     }
+    
+    error_page 500 502 503 504 /500.html
+    location = /500.html {
+        root /var/www/html
+    }
 }
 
+```
+
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="refresh" content="3;url=http://localhost" />
+	</head>
+<body>
+
+<div class="center">
+<div class="lds-css ng-scope">
+  <div style="width:100%;height:100%" class="lds-facebook">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+  <style type="text/css">
+  @keyframes lds-facebook_1 {
+  0% {
+    top: 36px;
+    height: 128px;
+  }
+  50% {
+    top: 60px;
+    height: 80px;
+  }
+  100% {
+    top: 60px;
+    height: 80px;
+  }
+  }
+  @-webkit-keyframes lds-facebook_1 {
+    0% {
+      top: 36px;
+      height: 128px;
+    }
+    50% {
+      top: 60px;
+      height: 80px;
+    }
+    100% {
+      top: 60px;
+      height: 80px;
+    }
+  }
+  @keyframes lds-facebook_2 {
+    0% {
+      top: 41.99999999999999px;
+      height: 116.00000000000001px;
+    }
+    50% {
+      top: 60px;
+      height: 80px;
+    }
+    100% {
+      top: 60px;
+      height: 80px;
+    }
+  }
+  @-webkit-keyframes lds-facebook_2 {
+    0% {
+      top: 41.99999999999999px;
+      height: 116.00000000000001px;
+    }
+    50% {
+      top: 60px;
+      height: 80px;
+    }
+    100% {
+      top: 60px;
+      height: 80px;
+    }
+  }
+  @keyframes lds-facebook_3 {
+    0% {
+      top: 48px;
+      height: 104px;
+    }
+    50% {
+      top: 60px;
+      height: 80px;
+    }
+    100% {
+      top: 60px;
+      height: 80px;
+    }
+  }
+  @-webkit-keyframes lds-facebook_3 {
+    0% {
+      top: 48px;
+      height: 104px;
+    }
+    50% {
+      top: 60px;
+      height: 80px;
+    }
+    100% {
+      top: 60px;
+      height: 80px;
+    }
+  }
+  .lds-facebook {
+    position: relative;
+  }
+  .lds-facebook div {
+    position: absolute;
+    width: 30px;
+  }
+  .lds-facebook div:nth-child(1) {
+    left: 35px;
+    background: #3be8b0;
+    -webkit-animation: lds-facebook_1 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    animation: lds-facebook_1 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    -webkit-animation-delay: -0.2s;
+    animation-delay: -0.2s;
+  }
+  .lds-facebook div:nth-child(2) {
+    left: 85px;
+    background: #1aafd0;
+    -webkit-animation: lds-facebook_2 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    animation: lds-facebook_2 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    -webkit-animation-delay: -0.1s;
+    animation-delay: -0.1s;
+  }
+  .lds-facebook div:nth-child(3) {
+    left: 135px;
+    background: #6a67ce;
+    -webkit-animation: lds-facebook_3 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    animation: lds-facebook_3 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  .lds-facebook {
+    width: 200px !important;
+    height: 200px !important;
+    -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+    transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    overflow-y: hidden;
+    overflow-x: hidden
+  }
+  </style></div>
+</div>
+
+</body>
+</html>
 ```
 
 ## Change Splash Screen
