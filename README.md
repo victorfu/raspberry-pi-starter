@@ -451,6 +451,24 @@ server {
 </html>
 ```
 
+Another redirect script:
+```js
+<script type="text/javascript">
+    /*<![CDATA[*/
+    var TimerVal = 20;
+    function CountDown(){
+	setTimeout( "CountDown()", 1000  );
+	TimerVal=TimerVal-1;
+	if (TimerVal<0) { TimerVal=0;
+	    location.reload(true);
+	    //window.location.href = "http://www.xaluan.com";
+	}
+    }
+    CountDown();
+    /*]]>*/
+</script>
+```
+
 ## Change Splash Screen
 The splash screen is a PNG file at `/usr/share/plymouth/themes/pix/splash.png`. Replace the PNG to change the splash screen.
 
