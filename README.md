@@ -410,3 +410,14 @@ network={
     key_mgmt=WPA-PSK
 }
 ```
+
+## Hide mouse curcor
+```sh
+$ sudo apt-get install unclutter
+$ vim ~/.config/lxsession/LXDE-pi/autostart
+```
+
+Add the following line:
+```sh
+@unclutter -idle 0.1
+```
