@@ -595,3 +595,9 @@ Add the following line:
 ```sh
 @unclutter -idle 0.1
 ```
+
+## Disable RPi logo
+Edit `/boot/cmdline.txt` add the following line:
+```sh
+logo.nologo quiet splash
+```
