@@ -601,3 +601,47 @@ Edit `/boot/cmdline.txt` add the following line:
 ```sh
 logo.nologo quiet splash
 ```
+
+## Control WiFi
+Enable/Disable WiFi interface.
+```sh
+$ sudo ip link set dev wlan0 up
+$ sudo ip link set dev wlan0 down
+```
+
+Request dynamic IP from DHCP for WiFi.
+```sh
+$ sudo dhclient wlan0
+```
+
+Configure static IP address and default route.
+```sh
+$ sudo ip addr add 192.168.1.14/24 dev wlan0
+$ sudo ip link set dev wlan0 up
+$ sudo ip route add default via 192.168.1.1
+```
+These commands configure your interface but these changes will not survive a reboot, since the information is not stored anyhwere. 
+
+To configure a interface permanently you'll need to edit the interfaces file, `/etc/network/interfaces`.
+```sh
+$ sudo vi /etc/network/interfaces
+```
+```sh
+## To configure a dynamic IP address
+auto wlan0
+iface wlan0 inet dhcp
+
+## Or configure a static IP
+auto wlan0
+iface wlan0 inet static
+  address 192.168.1.14
+  gateway 192.168.1.1
+  netmask 255.255.255.0
+  network 192.168.1.0
+  broadcast 192.168.1.255
+```
+
+For these settings to take effect you need to restart your networking services.
+```sh
+$ sudo /etc/init.d/networking restart
+```
