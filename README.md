@@ -292,9 +292,9 @@ server {
             proxy_read_timeout 240s;
     }
     
-    error_page 500 502 503 504 /500.html
+    error_page 500 502 503 504 /500.html;
     location = /500.html {
-        root /var/www/html
+        root /var/www/html;
     }
 }
 
