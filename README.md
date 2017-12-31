@@ -16,6 +16,21 @@ Install nvm
 $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 ```
 
+You may need to execute code as a privileged user (`root`) using `sudo` in order to access to GPIO or privileged ports (`80`, `443`). Without this you may see an error like this:
+
+```sh
+$ sudo node
+sudo: node: command not found
+```
+
+On way to fix this is by creating an alias, usually in `~/.profile`:
+
+```
+alias sudo='sudo env PATH=$PATH:$NVM_BIN'
+```
+Source: https://github.com/creationix/nvm/issues/43#issuecomment-139739406
+Now you can run node using `sudo`.
+
 Install nodejs
 ```sh
 $ nvm install 6.11.1
