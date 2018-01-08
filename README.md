@@ -222,6 +222,19 @@ $ sudo apt-get install make gcc g++
 $ sudo apt-get install libzmq3 libzmq3-dev
 ```
 
+## Build mosquitto from Source Code
+```bash
+sudo apt-get install cmake libssl1.0-dev libwebsockets-dev uuid-dev
+cd /tmp
+wget http://mosquitto.org/files/source/mosquitto-1.4.14.tar.gz
+tar xavf mosquitto-1.4.14.tar.gz
+cd mosquitto-1.4.14
+cmake .
+# cmake -DWITH_WEBSOCKETS=ON . if you need websockets support
+make -j4
+sudo make install
+```
+
 ## Installation of SQLite
 ```sh
 $ sudo apt-get install sqlite3
