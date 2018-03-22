@@ -284,8 +284,8 @@ bind-address = *
 
 ## Installation of InfluxDB
 ```sh
-$ wget https://dl.influxdata.com/influxdb/releases/influxdb_1.2.4_armhf.deb
-$ sudo dpkg -i influxdb_1.2.4_armhf.deb
+$ wget https://dl.influxdata.com/influxdb/releases/influxdb_1.5.1_amd64.deb
+$ sudo dpkg -i influxdb_1.5.1_amd64.deb
 $ cd ~/.node-red
 $ npm install node-red-contrib-influxdb
 ```
